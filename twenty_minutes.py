@@ -6,7 +6,7 @@ import sys, os
 from optparse import OptionParser
 from time import gmtime, strftime
 
-BASE_URL = "http://20minutes.s3.amazonaws.com/"
+BASE_URL = "http://pdf.20minutes.fr/"
 DATADIR = os.environ["HOME"] + "/data/20minutes/"
 
 if __name__ == "__main__":

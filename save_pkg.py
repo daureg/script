@@ -35,12 +35,10 @@ def handle_dir(file, path):
 				if filename.find(extension) != -1:
 					os.popen("cp *%s %s"%(extension,dir_str))
 		#Cas particulier
-		if path.find("firefox-cvs") > 10:
+		if path.find("firefox-hg") > 10:
 			os.popen("cp mozconfig %s"%dir_str)
 		if path.find("homer-kernel") > 10:
 			os.popen("cp -r config update.sh %s"%dir_str)
-		if path.find("scripts-perso") > 10:
-			os.popen("cp -r scripts-perso* %s"%dir_str)
 
 if __name__ == "__main__":
 	pkg_dir = os.environ['HOME'] + "/pkg"
