@@ -30,7 +30,7 @@ install:
 	# http://git.fluxbox.org/?p=fluxbox.git;a=blob_plain;f=util/fbsetbg;hb=HEAD
 	$(INSTALL_bin) fbsetbg.sh ${bindir}/fbsetbg
 	
-	# http://projects.archlinux.org/gitweb.cgi?p=pacman.git;a=blob_plain;f=contrib/bacman;hb=HEAD
+	# http://projects.archlinux.org/pacman.git/plain/contrib/bacman
 	$(INSTALL_bin) bacman.sh ${bindir}/bacman
 
 	$(INSTALL_bin) erase.sh ${bindir}/erase
