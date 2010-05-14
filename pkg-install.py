@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 # Author: Géraud Le Falher <daureg@gmail.com>
 # Licence: GPL2 <http://www.opensource.org/licenses/gpl-2.0.php>

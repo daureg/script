@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 """Update the version of a OLD_DIRectory by moving it."""
 import sys, os

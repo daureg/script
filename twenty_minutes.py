@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 """Get the lastest or a specific version of 20 minutes nantes pdf"""
 import sys, os

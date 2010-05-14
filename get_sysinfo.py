@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 import os, sys
 info = sys.argv[1]

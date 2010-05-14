@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 #pylint: disable-msg=W0312
 """Search the list of package which start from specified letter."""
 import sys, string, os

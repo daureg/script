@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 """Cherche mes paquets personnel installé dans ~/pkg."""
 import sys, os, os.path, ConfigParser

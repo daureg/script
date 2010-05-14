@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# -*- coding: utf-8 -*-
+# vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 """Compare the output of lsmod with the module directory of the running kernel
 to find module which were built but which aren't used."""
