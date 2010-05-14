@@ -13,7 +13,7 @@ install:
 	$(INSTALL_bin) icatalyst.sh ${bindir}/icatalyst
 	$(INSTALL_bin) iradeon.sh ${bindir}/iradeon
 	$(INSTALL_bin) npkg.py ${bindir}/npkg
-	$(INSTALL_bin) pactree.sh ${bindir}/pactree # http://projects.archlinux.org/gitweb.cgi?p=pacman.git;a=blob_plain;f=contrib/pactree;hb=HEAD
+	$(INSTALL_bin) pactree.sh ${bindir}/pactree # http://projects.archlinux.org/pacman.git/plain/contrib/pactree
 	$(INSTALL_bin) pkg-install.py ${bindir}/pkg-install
 	$(INSTALL_bin) pks.py ${bindir}/pks
 	$(INSTALL_bin) post_song.py ${bindir}/post_song
