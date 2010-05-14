@@ -58,7 +58,7 @@ command="`basename \"$0\"`"
 display_usage() {
     cat << EOF
 Usage: $command [-u/-U [wallpapersetter]] [-fFcCtTaA] /path/to/wallpaper
-       $command [-u/-U [wallpapersetter]] [-fFcCtTaA] -r/-R /path/to/wallpaperdirectory
+       $command [-u/-U [wallpapersetter]] [-fFcCtTaA] -r/-R /path/to/directory
        $command [-b/-B fbsetrootoptions]
        $command [-lhip]
 Use \`\`$command -h'' for a complete help message.
@@ -72,17 +72,21 @@ display_help() {
 
 Options:
 
+    -u  Use specified wallpapersetter, use no argument to forget.
+
     -f  Set fullscreen wallpaper (default).
     -c  Set centered wallpaper.
     -t  Set tiled wallpaper.
     -a  Set maximized wallpaper, preserving aspect.
-        ( if your bgsetter doesn't support this
+        ( if your wallpapersetter doesn't support this
           we fall back to -f )
-    -u  Use specified wallpapersetter, use no argument to forget.
-    -b  Forward the options to fbsetroot.
+
     -r  set random wallpaper from a directory
 
-    -F,-C,-T,-A,-U,-B,-R same as uncapsed but without remembering.
+    -b  Forward the rest of the arguments to fbsetroot(1).
+        This can be used to set solid, pattern, or gradient backgrounds.
+
+    -F,-C,-T,-A,-U,-B,-R same as lower-case, but without remembering.
 
     -h  Display this help.
 
@@ -308,6 +312,7 @@ while [ $# -gt 0 ]; do
                 remember=false
                 break
             fi
+            ignore_missing_wallpaper=true
             style="style"
             shift ;;
         -Z)
@@ -521,6 +526,9 @@ fi
 
 
 if [ ! -r "$wallpaper" ]; then
+	if [ "$ignore_missing_wallpaper" == "true" ]; then
+		exit 0
+	fi
     message "Can't find wallpaper $wallpaper"
     exit 1
 fi
