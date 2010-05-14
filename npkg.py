@@ -26,17 +26,17 @@ def readdir(path, recur, install, ver_first):
 				handle_file(f, install, ver_first, path)
 
 def handle_file(file, install, ver_first, path):
-    name = ''
-    ver = ''
-    url = ''
-    packager = ''
-    if file == "PKGBUILD":
-        name, ver, url, packager = read_pkg(path+os.sep+file)
-        if name in install and packager == get_packager():
-            if ver_first:
-                print ver + (13-len(ver))*" " + name + (28-len(name))*" " + url
-            else:
-                print name + (26-len(name))*" " + ver + (12-len(ver))*" "  + url
+	name = ''
+	ver = ''
+	url = ''
+	packager = ''
+	if file == "PKGBUILD":
+		name, ver, url, packager = read_pkg(path+os.sep+file)
+		if name in install and packager == get_packager():
+			if ver_first:
+				print ver + (13-len(ver))*" " + name + (28-len(name))*" " + url
+			else:
+				print name + (26-len(name))*" " + ver + (12-len(ver))*" "  + url
 
 def read_pkg(file):
 	"""Extract useful info of given PGKBUILD"""
