@@ -4,9 +4,12 @@
 import os, sys
 info = sys.argv[1]
 
+DISK=['sda9']
+SOMME=False
+
 def get_mail():
 	import libgmail
-	ga = libgmail.GmailAccount("daureg@gmail.com", "TUER3enfant")
+	ga = libgmail.GmailAccount("daureg@gmail.com", MOTDEPASSE)
 	ga.login()
 	return ga.getUnreadMsgCount()
 
@@ -30,9 +33,16 @@ if info == "cpu_temp":
 
 
 if info == "disk_free":
-	fst = str(int(os.popen("df|grep sda9").read().split()[3])/1024)
-	#snd = str(int(os.popen("df|grep sda11").read().split()[3])/1024)
-	print fst+' Mo'
+	if SOMME:
+		res=0
+		for i in DISK:
+			res = res + int(os.popen("df|grep %s"%i).read().split()[3])/1024
+		print str(res) + ' Mo'
+	else:
+		res=''
+		for i in DISK:
+			res = res + str(int(os.popen("df|grep %s"%i).read().split()[3])/1024) +', '
+		print res[:-2] + ' Mo'
 
 if info == "mem_free":
 	memtotal = int(os.popen("cat /proc/meminfo|grep '^MemTotal'").read().split()[1])
