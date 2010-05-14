@@ -10,8 +10,8 @@ LEN_2_PART=22
 LEN_3_PART=13
 LEN_4_PART=15
 
-ARCH="| 2007.08 Don't Panic"
-UBUNTU="| 7.04 Feisty Fawn"
+ARCH="| 2010.05"
+UBUNTU="| 10.04 Lucid Lynx"
 
 SYSTEME="default"
 KERNEL_NAME=""
@@ -77,16 +77,11 @@ BOOT_KERNEL=BOOT_KERNEL+VERSION+"-"+KERNEL_NAME
 
 # partie 1 (systeme)
 if (SYSTEME=="win"):
-    TITLE=TITLE+"Windows"+(LEN_1_PART-7)*' '+"| XP Home"+(LEN_2_PART-8)*' '
-    RESTE="root		(hd0,0))\nsavedefault\nmakeactive\nchainloader	+1"
+    TITLE=TITLE+"Windows"+(LEN_1_PART-7)*' '+"| Vista Home"+(LEN_2_PART-8)*' '
 if (SYSTEME=="ubuntu"):
-    TITLE=TITLE+"Ubuntu"+(LEN_1_PART-6)*' '+"| 7.04 - Feisty Fawn"+(LEN_2_PART-len(UBUNTU))*' '
-    RESTE="root		(hd0,8)\nkernel		/boot/"+BOOT_KERNEL+" root=/dev/sda9 ro quiet splash\nsavedefault\nboot"
-    RESTE_S="root		(hd0,8)\nkernel		/boot/"+BOOT_KERNEL+" root=/dev/sda9 ro single\nboot"
+    TITLE=TITLE+"Ubuntu"+(LEN_1_PART-6)*' '+UBUNTU+(LEN_2_PART-len(UBUNTU))*' '
 if (SYSTEME=="arch"):
-    TITLE=TITLE+"Archlinux"+(LEN_1_PART-9)*' '+"| 2007.08 - Don't Panic"+(LEN_2_PART-len(ARCH))*' '
-    RESTE="root   (hd0,10)\nkernel /boot/vmlinuz26 root=/dev/sda11 ro\ninitrd /boot/kernel26.img"
-    RESTE_S="root   (hd0,10)\nkernel /boot/vmlinuz26 root=/dev/sda11 ro\ninitrd /boot/kernel26-fallback.img"
+    TITLE=TITLE+"Archlinux"+(LEN_1_PART-9)*' '+ARCH+(LEN_2_PART-len(ARCH))*' '
 TITLE=TITLE+"| "
 
 # partie 3 (version)
@@ -99,4 +94,4 @@ TITLE=TITLE+KERNEL_NAME+(LEN_4_PART-len(KERNEL_NAME))*' '
 TITLE_S=TITLE+"| S"
 
 
-print TITLE+"\n"+RESTE+"\n\n"+TITLE_S+"\n"+RESTE_S
+print TITLE+"\n"+TITLE_S
