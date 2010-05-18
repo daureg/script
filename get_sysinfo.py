@@ -3,8 +3,15 @@
 # pylint: disable-msg=W0312
 import os, sys
 info = sys.argv[1]
+if len(sys.argv) > 2:
+	distro = sys.argv[2]
+else:
+	distro="archlinux"
 
-DISK=['sda9']
+if distro=="archlinux":
+	DISKS=['sda9']
+else:
+	DISKS=['sda8']
 SOMME=False
 
 def get_mail():
@@ -25,7 +32,7 @@ if info == "uptime":
 	print os.popen("uptime").read().split()[2].strip(',')
 
 if info == "cpu_temp":
-	temp = os.popen("sensors|grep Core|cut -d '+' -f2|cut -d '°' -f1").read().strip().split()
+	temp = os.popen("sensors|grep Core|cut -d '+' -f2|cut -c -4").read().strip().split()
 	r=0.0
 	for i in temp:
 		r=r+float(i)
@@ -35,12 +42,12 @@ if info == "cpu_temp":
 if info == "disk_free":
 	if SOMME:
 		res=0
-		for i in DISK:
+		for i in DISKS:
 			res = res + int(os.popen("df|grep %s"%i).read().split()[3])/1024
 		print str(res) + ' Mo'
 	else:
 		res=''
-		for i in DISK:
+		for i in DISKS:
 			res = res + str(int(os.popen("df|grep %s"%i).read().split()[3])/1024) +', '
 		print res[:-2] + ' Mo'
 
