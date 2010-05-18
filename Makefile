@@ -5,7 +5,6 @@ INSTALL_bin		= install -D -m755
 install:
 	$(INSTALL_bin) add_grub_entry.py ${bindir}/add_grub_entry 
 	$(INSTALL_bin) bacman.sh ${bindir}/bacman # http://projects.archlinux.org/pacman.git/plain/contrib/bacman
-	$(INSTALL_bin) bench3d.sh ${bindir}/bench3d
 	$(INSTALL_bin) check_python.sh ${bindir}/check_python
 	$(INSTALL_bin) fbsetbg.sh ${bindir}/fbsetbg # http://git.fluxbox.org/?p=fluxbox.git;a=blob_plain;f=util/fbsetbg;hb=HEAD
 	$(INSTALL_bin) gastyle.sh ${bindir}/gastyle
@@ -28,7 +27,6 @@ install:
 uninstall:
 	rm ${bindir}/add_grub_entry 
 	rm ${bindir}/bacman
-	rm ${bindir}/bench3d
 	rm ${bindir}/check_python
 	rm ${bindir}/fbsetbg
 	rm ${bindir}/gastyle
