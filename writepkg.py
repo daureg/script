@@ -121,6 +121,7 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"SVN checkout done or server timeout\"\n"
 		first += "\tcd $_svnmod\n"
+		sdir = "$_svnmod"
 	if build_method == "bzr":
 		write_value("_bzrtrunk", ask_value("_bzrtrunk"), current_file, False, False)
 		write_value("_bzrmod", ask_value("_bzrmod"), current_file, False, False)
@@ -132,6 +133,7 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"BZR checkout done or server timeout\"\n"
 		first += "\tcd $_bzrmod\n"
+		sdir = "$_bzrmod"
 	if build_method == "cvs":
 		write_value("_cvsroot", ask_value("_cvsroot"), current_file, False, False)
 		write_value("_cvsmod", ask_value("_cvsmod"), current_file, False, False)
@@ -143,6 +145,7 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"CVS checkout done or server timeout\"\n"
 		first += "\tcd $_cvsmod\n"
+		sdir = "$_cvsmod"
 	if build_method == "git":
 		write_value("_gitroot", ask_value("_gitroot"), current_file, False, False)
 		write_value("_gitname", ask_value("_gitname"), current_file, False, False)
@@ -154,6 +157,7 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"GIT checkout done or server timeout\"\n"
 		first += "\tcd $_gitname\n"
+		sdir = "$_gitname"
 	if build_method == "darcs":
 		write_value("_darcsmod", ask_value("_darcsmod"), current_file, False, False)
 		write_value("_darcstrunk", ask_value("_darcstrunk"), current_file, False, False)
@@ -167,6 +171,7 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"Darcs checkout done or server timeout\"\n"
 		first += "\tcd $_darcsmod\n"
+		sdir = "$_darcsmod"
 	if build_method == "hg":
 		write_value("_hgroot", ask_value("_hgroot"), current_file, False, False)
 		write_value("_hgrepo", ask_value("_hgrepo"), current_file, False, False)
@@ -178,10 +183,14 @@ def mk_build(current_file, build_method):
 		first += "\tfi \n"
 		first += "\tmsg \"HG checkout done or server timeout\"\n"
 		first += "\tcd $_hgrepo\n"
+		sdir = "$_hgrepo"
 	if build_method == "release":
 		first += "\tcd $pkgname-$pkgver\n"
-	first += "\t#DON'T FORGET TO CONFIGURE\n"
-	first += "\tmake || return 1\n"
+		sdir = "$pkgname-$pkgver"
+	first += "\t#DON'T FORGET TO CONFIGURE ./autogen.sh --help-short\n"
+	first += "\tmake\n"
+	first += "}\npackage() {"
+	first += "\tcd ${srcdir}/%s"%sdir
 	first += "\tmake DESTDIR=${pkgdir} install\n"
 	first += "\trm -rf ${pkgdir}/usr/share/man/{a*,b*,c*,d*,e*,f*,g*,h*,i*,j*,k*,l*,n*,o*,p*,q*,r*,s*,t*,u*,v*,w*,x*,y*,z*}\n"
 	first += "\trm -rf ${pkgdir}/usr/share/locale/{a*,b*,c*,d*,e*,fa*,fb*,fc*,fd*,fe*,ff*,fg*,fh*,fi*,fj*,fk*,fl*,fm*,fn*,fo*,fp*,fq*,fs*,ft*,fu*,fv*,fw*,fx*,fy*,fz*,g*,h*,i*,j*,k*,l*,m*,n*,o*,p*,q*,r*,s*,t*,u*,v*,w*,x*,y*,z*}\n}\n"
