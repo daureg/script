@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/python2
 # vim: fileencoding=utf-8 :
 # pylint: disable-msg=W0312
 import os, sys
