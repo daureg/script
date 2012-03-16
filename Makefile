@@ -6,7 +6,6 @@ install:
 	$(INSTALL_bin) add_grub_entry.py ${bindir}/add_grub_entry 
 	$(INSTALL_bin) check_python.sh ${bindir}/check_python
 	$(INSTALL_bin) fbsetbg.sh ${bindir}/fbsetbg # http://git.fluxbox.org/fluxbox.git/plain/util/fbsetbg
-	$(INSTALL_bin) gastyle.sh ${bindir}/gastyle
 	$(INSTALL_bin) get_sysinfo.py ${bindir}/get_sysinfo
 	$(INSTALL_bin) icatalyst.sh ${bindir}/icatalyst
 	$(INSTALL_bin) iradeon.sh ${bindir}/iradeon
@@ -27,7 +26,6 @@ uninstall:
 	rm ${bindir}/add_grub_entry 
 	rm ${bindir}/check_python
 	rm ${bindir}/fbsetbg
-	rm ${bindir}/gastyle
 	rm ${bindir}/get_sysinfo
 	rm ${bindir}/icatalyst
 	rm ${bindir}/iradeon
