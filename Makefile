@@ -17,6 +17,7 @@ install:
 	$(INSTALL_bin) pysay.py ${bindir}/pysay
 	$(INSTALL_bin) save_pkg.py ${bindir}/save_pkg
 	$(INSTALL_bin) screenshot.pl ${bindir}/screenshot
+	$(INSTALL_bin) texplate.py ${bindir}/texplate
 	$(INSTALL_bin) twenty_minutes.py ${bindir}/20minutes
 	$(INSTALL_bin) unwanted_modules.py ${bindir}/unwanted_modules
 	$(INSTALL_bin) updir.py ${bindir}/updir
@@ -37,6 +38,7 @@ uninstall:
 	rm ${bindir}/pysay
 	rm ${bindir}/save_pkg
 	rm ${bindir}/screenshot
+	rm ${bindir}/texplate
 	rm ${bindir}/20minutes
 	rm ${bindir}/unwanted_modules
 	rm ${bindir}/updir
